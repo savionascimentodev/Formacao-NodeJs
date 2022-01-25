@@ -1,0 +1,3 @@
+### Api Games
+
+Mini projetinho para a introdução de conceitos sobre Apis, Rest, Requisições, Postman...
