@@ -30,21 +30,59 @@ var DB = {
   ],
 }
 
-
-
-app.get('/games',(req,res) => {
+app.get('/games', (req, res) => {
   res.statusCode = 200; // Sempre passar um StatusCode para o usuário;
   res.json(DB.games)
 })
 
-app.get('/game/:id',(req,res) => {
+app.get('/game/:id', (req, res) => {
   if (isNaN(req.params.id)) {
     res.sendStatus(400);
   } else {
-    // var id = 
+    var id = parseInt(req.params.id)
+
+    var game = DB.games.find(g => g.id == id)
+
+    if (game != undefined) {
+      res.statusCode = 200;
+      res.json(game)
+    } else {
+      res.sendStatus(404);
+    }
   }
 })
 
-app.listen(3000,() => {
+
+app.post('/game', (req, res) => {
+
+  var { title, year, price } = req.body;
+
+  DB.games.push({
+    id: 22,
+    title,
+    price,
+    year
+  });
+
+  res.sendStatus(200)
+})
+
+app.delete('/game/:id', (req, res) => {
+  if (isNaN(req.params.id)) {
+    res.sendStatus(400);
+  } else {
+    var id = parseInt(req.params.id)
+    var index = DB.games.findIndex(g => g.id === id)
+
+    if (index === -1) {
+      res.sendStatus(400);
+    } else {
+      DB.games.splice(index, 1);
+      res.sendStatus(200);
+    }
+  }
+})
+
+app.listen(3000, () => {
   console.log('Api rodando!');
 })
