@@ -1,6 +1,6 @@
 ### O que é HTTP?
 
-Protocolo de Transferência de dados na Web, a comunicação de um cliente (navegador) e o servidor acontece graças a esse protocolo, **Hyper Text Transfer Protocol**, o cliente manda uma requisição sobre uma pesquisa no google, e essa requisição e o servidor tem a tarefa de enviar a resposta.
+Protocolo de Transferência de dados na Web, a comunicação de um cliente (navegador) e o servidor acontece graças a esse protocolo, **Hyper Text Transfer Protocol**, o cliente manda uma requisição sobre uma pesquisa no google, e essa requisição é processada pelo servidor que tem a tarefa de enviar a resposta.
 
 ### Verbos HTTP, Métodos ou Ações
 
